@@ -79,6 +79,21 @@ So Vera owns a **durable, declared flip record** as a first-class emission with
 a named consumer: the fine-tuning corpus. A verification signal that nothing
 reads is the exact failure mode this project exists to end.
 
+## Vera contributes model roles
+
+Stella's `/models` dialog has a role table. It is an **extension point**, not
+legacy: core declares exactly one role (`default`, the single model a bare loop
+sends), and every other row is contributed by an installed plugin.
+
+Vera contributes the roles its own work needs — the worker whose output is
+being judged, and the independent verifier-tier model that authors the witness.
+Verifier independence is Vera's invariant to enforce, not Stella's: a witness
+author that resolves to the worker's model is the worker grading its own work.
+
+This is blocked upstream on the role vocabulary being opened
+(`EngineRole` is a closed six-variant enum today) — tracked as
+Stella #3472.
+
 ## Upstream status this depends on
 
 - **Landed** — the engine owns its own ending; the pipeline no longer holds a
